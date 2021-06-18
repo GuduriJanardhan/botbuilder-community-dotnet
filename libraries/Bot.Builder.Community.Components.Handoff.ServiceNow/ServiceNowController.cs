@@ -45,8 +45,7 @@ namespace Bot.Builder.Community.Components.Handoff.ServiceNow
                 var responseMessage = JsonConvert.DeserializeObject<ServiceNowResponseMessage>(body);
 
                 if (responseMessage != null)
-                {
-                   
+                {                   
                     // Do we have a matching handoff record for the incoming ConversationID from ServiceNow?
                     var handoffRecord = await ConversationHandoffRecordMap.GetByRemoteConversationId(responseMessage.clientSessionId) as ServiceNowHandoffRecord;
                     if (handoffRecord != null)

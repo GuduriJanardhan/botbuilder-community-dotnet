@@ -17,7 +17,6 @@ namespace Bot.Builder.Community.Components.Handoff.ServiceNow
         public static async Task<ServiceNowConversationRecord> EscalateToAgentAsync(ITurnContext turnContext, IEventActivity handoffEvent, string serviceNowTenant, string serviceNowAuthConnectionName, ConversationHandoffRecordMap conversationHandoffRecordMap)
         {
             var context = handoffEvent.Value as JObject;
-
             // These can be null, it may not be necessary to pass these if ServiceNow can infer from the logger in user (SSO) but shows the concept
             // of how a Bot can pass information as part of the handoff event for use by ServiceNow.
             var timeZone = context?.Value<string>("timeZone");               
